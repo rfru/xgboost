@@ -9,6 +9,7 @@
 #include <cmath>
 #include <iomanip>
 #include "./param.h"
+#include <iomanip>
 
 namespace xgboost {
 // register tree parameter
@@ -164,6 +165,7 @@ std::string RegTree::DumpModel(const FeatureMap& fmap,
                                bool with_stats,
                                std::string format) const {
   std::stringstream fo("");
+  fo << std::setprecision(16);
   for (int i = 0; i < param.num_roots; ++i) {
     DumpRegTree(fo, *this, fmap, i, 0, false, with_stats, format);
   }
